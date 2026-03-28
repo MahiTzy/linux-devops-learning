@@ -1,4 +1,5 @@
 [
   {"name": "Alice", "grade": "A"},
-  {"name": "Bob", "grade": "B"}
+  {"name": "Bob", "grade": "B"},
+  {"name": "Freya", "grade": "D"}
 ]
