@@ -4,6 +4,8 @@ const axios = require('axios');
 
 const app = express();
 
+const BACKEND_URL = process.env.BACKEND_URL;
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -13,7 +15,7 @@ app.get('/', (req, res) => {
 
 app.post('/submit', async (req, res) => {
     try {
-        await axios.post('http://backend:5000/submit', {
+        await axios.post('http://BACKEND_URL/submit', {
             name: req.body.name,
             grade: req.body.grade
         });
