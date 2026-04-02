@@ -18,7 +18,7 @@ app.post('/submit', async (req, res) => {
             name: req.body.name,
             grade: req.body.grade
         });
-        res.json({
+        res.send({
             message: "Data submitted successfully",
             backendResponse: response.data
         });
