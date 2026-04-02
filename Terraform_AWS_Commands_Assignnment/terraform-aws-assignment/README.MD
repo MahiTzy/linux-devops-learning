@@ -1,4 +1,4 @@
-# 🚀 AWS Deployment Assignment – DevOps Project
+# 🚀 Terraform AWS Deployment
 
 ## 📌 Overview
 
