@@ -6,7 +6,7 @@ app = Flask(__name__)
 def submit():
     data = request.json
     print("Received:", data)
-    return jsonify({"message": "Data received successfully",
+    return jsonify({"message": "Data received sucjhbjhcessfully",
                    "Name": data.name})
 
 if __name__ == "__main__":
