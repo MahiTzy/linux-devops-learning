@@ -16,7 +16,8 @@ def submit():
 
     return jsonify({
         "message": "Data received successfully",
-        "name": data.get("name")
+        "name": data.get("name"),
+        "grade": data.get("grade")
     })
 
 
