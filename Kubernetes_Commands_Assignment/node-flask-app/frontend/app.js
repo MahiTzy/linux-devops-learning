@@ -18,7 +18,11 @@ app.post('/submit', async (req, res) => {
             name: req.body.name,
             grade: req.body.grade
         });
-        res.send("Data submitted succedgdgdgdgssfully");
+        res.json({
+            message: "Data submitted successfully",
+            backendResponse: response.data
+        });
+
     } catch (err) {
         res.send("Error: " + err.message);
     }
