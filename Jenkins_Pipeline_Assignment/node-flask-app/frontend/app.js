@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 
 app.post('/submit', async (req, res) => {
     try {
-        const response = await axios.post('http://15.206.88.187:5000/submit', {
+        const response = await axios.post('http://13.201.190.123:5000/submit', {
             name: req.body.name,
             grade: req.body.grade,
             mobile: req.body.mobile
