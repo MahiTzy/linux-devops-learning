@@ -11,13 +11,13 @@ pipeline {
         stage('Deploy to App Server') {
             steps {
                 sh '''
-                ssh ubuntu@15.206.88.187 "
-                cd linux-devops-learning/Kubernetes_Commands_Assignment/node-flask-app/frontend &&
+                ssh -o StrictHostKeyChecking=no ubuntu@13.201.190.123 "
+                cd linux-devops-learning/Jenkins_Pipeline_Assignment/node-flask-app/frontend &&
                 git reset --hard &&
                 git clean -fd &&
                 git pull &&
                 npm install &&
-                pm2 restart express-app || pm2 start app.js --name express-app
+                pm2 restart frontend || pm2 start app.js --name frontend
                 "
                 '''
             }
