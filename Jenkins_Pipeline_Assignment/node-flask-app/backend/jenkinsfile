@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git branch: 'main', url: 'https://github.com/MahiTzy/linux-devops-learning.git'
+            }
+        }
+
+        stage('Deploy to App Server') {
+            steps {
+                sh '''
+                ssh ubuntu@15.206.88.187 "
+
+                cd linux-devops-learning/Kubernetes_Commands_Assignment/node-flask-app/backend &&
+                git reset --hard &&
+                git clean -fd &&
+                git pull &&
+
+                # Create venv if not exists
+                if [ ! -d "venv" ]; then
+                    python3 -m venv venv
+                fi &&
+
+                source venv/bin/activate &&
+
+                pip install -r requirements.txt &&
+
+                pm2 restart flask-app || pm2 start app.py --name flask-app --interpreter ./venv/bin/python
+
+                "
+                '''
+            }
+        }
+    }
+}

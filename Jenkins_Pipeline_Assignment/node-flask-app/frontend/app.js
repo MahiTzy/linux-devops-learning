@@ -16,7 +16,8 @@ app.post('/submit', async (req, res) => {
     try {
         const response = await axios.post('http://15.206.88.187:5000/submit', {
             name: req.body.name,
-            grade: req.body.grade
+            grade: req.body.grade,
+            mobile: req.body.mobile
         });
         res.send({
             message: "Data submitted successfully",

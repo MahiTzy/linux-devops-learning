@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git branch: 'main', url: 'https://github.com/MahiTzy/linux-devops-learning.git'
+            }
+        }
+
+        stage('Deploy to App Server') {
+            steps {
+                sh '''
+                ssh ubuntu@15.206.88.187 "
+                cd linux-devops-learning/Kubernetes_Commands_Assignment/node-flask-app/frontend &&
+                git reset --hard &&
+                git clean -fd &&
+                git pull &&
+                npm install &&
+                pm2 restart express-app || pm2 start app.js --name express-app
+                "
+                '''
+            }
+        }
+    }
+}
